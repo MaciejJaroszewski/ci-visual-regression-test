@@ -22,9 +22,6 @@
     "babel-core": "^6.26.0",
     "husky": "^1.1.4",
     "reg-cli": "^0.13.0",
-    "reg-keygen-git-hash-plugin": "^0.7.0",
-    "reg-notify-github-plugin": "^0.7.0",
-    "reg-publish-s3-plugin": "^0.7.0",
     "reg-suit": "^0.7.0",
     "storybook-chrome-screenshot": "^1.0.0"
   },
