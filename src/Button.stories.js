@@ -17,5 +17,5 @@ storiesOf("Button", module)
       // }
     })
   )
-  .add("with default style", () => <Button>Default</Button>)
-  .add("with primary style", () => <Button primary>Primary</Button>);
+  .add("with default style", () => <Button>TEST</Button>)
+  .add("with primary style", () => <Button primary>TEST</Button>);
