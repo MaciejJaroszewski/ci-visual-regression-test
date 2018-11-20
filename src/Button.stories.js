@@ -6,9 +6,7 @@ import { Button } from "./Button";
 storiesOf("Button", module)
   .addDecorator(
     withScreenshot({
-      namespace: "global",
-      delay: 0,
-      waitFor: "",
+      delay: 100,
       viewport: {
         width: 1024,
         height: 768,
