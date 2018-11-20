@@ -41,8 +41,7 @@ jobs:
             xvfbd start
             yarn test-circleci
             xvfbd stop
-      # - run: yarn test-circleci
 
-       - store_artifacts:
-          path: snapshots/
+      - store_artifacts:
+          path: /snapshots
 
