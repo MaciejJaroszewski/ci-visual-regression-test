@@ -6,8 +6,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "visual-diff": "storybook-chrome-screenshot -p 9001 -c .storybook -o __screenshots__/current && reg-cli __screenshots__/current __screenshots__/expected __screenshots__/diff -R ./report.html -M 0.01 -A -X client",
     "visual-diff-update": "reg-cli __screenshots__/current __screenshots__/expected __screenshots__/diff -U",
-    "test": "storybook-chrome-screenshot -V -p 9001 -c .storybook -o snapshots/current && reg-cli snapshots/current __screenshots__/expected snapshots/diff -R ./report.html -M 0.01 -A -X client -I",
-    "test-circleci": "storybook-chrome-screenshot -V -p 9001 -c .storybook -o snapshots/current && reg-cli snapshots/current __screenshots__/expected snapshots/diff -R ./report.html -A -X client -M 0.01 -I"
+    "test": "storybook-chrome-screenshot -p 9001 -c .storybook -o snapshots/current && reg-cli snapshots/current __screenshots__/expected snapshots/diff -R ./report.html -M 0.01 -A -X client -I",
+    "test-circleci": "storybook-chrome-screenshot -p 9001 -c .storybook -o snapshots/current && reg-cli snapshots/current __screenshots__/expected snapshots/diff -R ./report.html"
   },
   "husky": {
     "hooks": {
