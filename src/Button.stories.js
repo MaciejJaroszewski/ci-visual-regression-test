@@ -3,12 +3,10 @@ import { storiesOf } from "@storybook/react";
 import { withScreenshot } from "storybook-chrome-screenshot";
 import { Button } from "./Button";
 
-import "./styles.css";
-
 storiesOf("Button", module)
   .addDecorator(
     withScreenshot({
-      delay: 3000,
+      delay: 1000,
       viewport: {
         width: 1024,
         height: 768,

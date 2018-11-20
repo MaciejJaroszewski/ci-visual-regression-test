@@ -45,3 +45,6 @@ jobs:
       - store_artifacts:
           path: snapshots/
 
+      - store_artifacts:
+          path: __screenshots__/
+
