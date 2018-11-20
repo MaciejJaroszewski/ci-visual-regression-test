@@ -4,6 +4,20 @@ import { withScreenshot } from "storybook-chrome-screenshot";
 import { Button } from "./Button";
 
 storiesOf("Button", module)
-  .addDecorator(withScreenshot())
+  .addDecorator(
+    withScreenshot({
+      namespace: "global",
+      delay: 0,
+      waitFor: "",
+      viewport: {
+        width: 1024,
+        height: 768,
+        deviceScaleFactor: 1,
+        isMobile: false,
+        hasTouch: false,
+        isLandscape: false
+      }
+    })
+  )
   .add("with default style", () => <Button>Default</Button>)
   .add("with primary style", () => <Button primary>Primary</Button>);
