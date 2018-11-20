@@ -3,6 +3,8 @@
 report.html
 .reg
 reg.json
+detector.wasm
+worker.js
 
 
 # See https://help.github.com/ignore-files/ for more about ignoring files.
