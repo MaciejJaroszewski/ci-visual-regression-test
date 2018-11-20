@@ -3,6 +3,8 @@ import { storiesOf } from "@storybook/react";
 import { withScreenshot } from "storybook-chrome-screenshot";
 import { Button } from "./Button";
 
+import "./styles.css";
+
 storiesOf("Button", module)
   .addDecorator(
     withScreenshot({
