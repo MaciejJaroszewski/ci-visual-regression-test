@@ -40,6 +40,7 @@ jobs:
           command: |
             xvfbd start
             yarn test-circleci
+            yarn visual-diff
             xvfbd stop 
       # - run: yarn test-circleci
 
