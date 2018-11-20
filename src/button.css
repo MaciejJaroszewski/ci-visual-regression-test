@@ -9,8 +9,8 @@ button {
   border-color: #adadad;
   background: #fff;
   color: #363636;
-  font-size: 14px;
   width: 150px;
+  font-size: 16px;
 }
 
 button.primary {
