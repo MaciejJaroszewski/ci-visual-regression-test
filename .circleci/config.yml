@@ -43,5 +43,5 @@ jobs:
             xvfbd stop
 
       - store_artifacts:
-          path: /snapshots
+          path: snapshots/
 
