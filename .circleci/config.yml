@@ -35,5 +35,11 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test-circleci
+      - run:
+          name: Test
+          command: |
+            xvfbd start
+            yarn test-circleci
+            xvfbd stop 
+      # - run: yarn test-circleci
 
