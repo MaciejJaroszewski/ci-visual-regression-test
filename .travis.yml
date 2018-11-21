@@ -7,11 +7,10 @@ cache:
   directories:
     - node_modules
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  chrome: beta
+before_install:
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu"
+
 # addons:
 # apt:
 #   packages:
