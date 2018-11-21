@@ -11,6 +11,7 @@ button {
   background: #fff;
   color: #363636;
   width: 150px;
+  font-size: 14px;
 }
 
 button.primary {

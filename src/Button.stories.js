@@ -6,15 +6,15 @@ import { Button } from "./Button";
 storiesOf("Button", module)
   .addDecorator(
     withScreenshot({
-      // delay: 1000,
-      // viewport: {
-      //   width: 1024,
-      //   height: 768,
-      //   deviceScaleFactor: 1,
-      //   isMobile: false,
-      //   hasTouch: false,
-      //   isLandscape: false
-      // }
+      delay: 1000,
+      viewport: {
+        width: 1024,
+        height: 768,
+        deviceScaleFactor: 1,
+        isMobile: false,
+        hasTouch: false,
+        isLandscape: false
+      }
     })
   )
   .add("with default style", () => <Button>TEST</Button>)
