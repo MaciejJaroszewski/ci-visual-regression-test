@@ -38,9 +38,9 @@ jobs:
       - run:
           name: Test
           command: |
-            # xvfbd start
+            xvfbd start
             yarn test-circleci
-            # xvfbd stop
+            xvfbd stop
 
       - store_artifacts:
           path: snapshots/

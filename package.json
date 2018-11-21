@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run visual-diff"
+      "pre-commit": "npm run perform-test-snapshots"
     }
   },
   "dependencies": {
