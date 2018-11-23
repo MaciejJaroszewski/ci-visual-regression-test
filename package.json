@@ -4,8 +4,8 @@
   "description": "A example repository of visual regression test using storybook-chrome-screenshot and reg-suit.",
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "take-snapshots": "storybook-chrome-screenshot --puppeteer-launch-config '{\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\", \"--disable-dev-shm-usage\", \"--enable-font-antialiasing\"]}' -p 9001 -c .storybook -o __screenshots__/current",
-    "take-snapshots-ci": "storybook-chrome-screenshot --puppeteer-launch-config '{\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\", \"--disable-dev-shm-usage\", \"--enable-font-antialiasing\"]}' -p 9001 -c .storybook -o snapshots/current",
+    "take-snapshots": "storybook-chrome-screenshot --puppeteer-launch-config '{\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\", \"--disable-dev-shm-usage\", \"--enable-font-antialiasing\", \"--headless\", \"--disable-gpu\"]}' -p 9001 -c .storybook -o __screenshots__/current",
+    "take-snapshots-ci": "storybook-chrome-screenshot --puppeteer-launch-config '{\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\", \"--disable-dev-shm-usage\", \"--enable-font-antialiasing\", \"--headless\", \"--disable-gpu\"]}' -p 9001 -c .storybook -o snapshots/current",
     "visual-diff": "reg-cli __screenshots__/current __screenshots__/expected __screenshots__/diff -R ./report.html -M 0.01 -A -X 'client'",
     "visual-diff-ci": "reg-cli snapshots/current __screenshots__/expected snapshots/diff -R snapshots/report.html -M 0.01 -A -X 'client' -I",
     "perform-test-snapshots": "npm run take-snapshots && npm run visual-diff",
