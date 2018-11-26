@@ -1,3 +1,7 @@
+* {
+  font-family: Arial, Verdena, sans-serif;
+}
+
 button {
   display: flex;
   align-items: center;
