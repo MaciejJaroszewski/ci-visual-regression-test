@@ -7,8 +7,8 @@ jobs:
   build:
     docker:
       - image: quramy/node-nightmare:latest@sha256:e527e87f8dc37634b953594ff3fe1302068e67129dcffca51ebfa786507c379a
-        environment:
-          DISPLAY: ":99"
+        # environment:
+        #   DISPLAY: ":99"
       # - image: circleci/node:10.13.0
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -35,6 +35,12 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get -y upgrade
       - run: sudo apt-get install fontconfig-infinality
+      - run: sudo apt-get -y install xvfb gtk2-engines-pixbuf
+      - run: sudo apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
+
+      - run: Xvfb -ac :99 -screen 0 1280x1024x16 &
+      - run: export DISPLAY=:99
+
 
       - run: yarn install --frozen-lockfile
 
@@ -47,9 +53,9 @@ jobs:
       - run:
           name: Test
           command: |
-            xvfbd start
             yarn test-circleci
-            xvfbd stop
+            # xvfbd start
+            # xvfbd stop
 
       - store_artifacts:
           path: snapshots/
