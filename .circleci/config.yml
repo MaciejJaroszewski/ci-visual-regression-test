@@ -33,7 +33,7 @@ jobs:
       
       - run: sudo add-apt-repository 'deb http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu trusty main'
       - run: sudo apt-get update
-      - run: sudo apt-get upgrade
+      - run: sudo apt-get -y upgrade
       - run: sudo apt-get install fontconfig-infinality
 
       - run: yarn install --frozen-lockfile
