@@ -27,6 +27,10 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      - run:
+          name: Installing fonts
+          command: 'sudo add-apt-repository ppa:no1wantdthisname/ppa; sudo apt-get update; sudo apt-get upgrade; sudo apt-get install fontconfig-infinality'
+
       - run: yarn install --frozen-lockfile
 
       - save_cache:
