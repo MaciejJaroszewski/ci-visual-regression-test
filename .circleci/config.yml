@@ -29,7 +29,7 @@ jobs:
 
       - run:
           name: Installing fonts
-          command: 'sudo add-apt-repository ppa:no1wantdthisname/ppa; sudo apt-get update; sudo apt-get upgrade; sudo apt-get install fontconfig-infinality'
+          command: 'add-apt-repository -y sudo ppa:no1wantdthisname/ppa; apt-get update -y sudo; apt-get upgrade -y sudo; apt-get install -y sudo fontconfig-infinality'
 
       - run: yarn install --frozen-lockfile
 
