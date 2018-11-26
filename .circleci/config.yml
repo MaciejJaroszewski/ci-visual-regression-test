@@ -30,9 +30,11 @@ jobs:
       - run: apt-get install -y sudo
       - run: ls -al /bin/sh && sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh && ls -al /bin/sh
       - run: sudo apt-get install -y software-properties-common
-      - run:
-          name: Installing fonts
-          command: 'add-apt-repository -y sudo ppa:no1wantdthisname/ppa; apt-get update -y sudo; apt-get upgrade -y sudo; apt-get install -y sudo fontconfig-infinality'
+      
+      - run: sudo add-apt-repository ppa:no1wantdthisname/ppa
+      - run: sudo apt-get update
+      - run: sudo apt-get upgrade
+      - run: sudo apt-get install fontconfig-infinality
 
       - run: yarn install --frozen-lockfile
 
