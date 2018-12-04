@@ -29,7 +29,7 @@
     "@storybook/react": "^3.3.9",
     "babel-core": "^6.26.0",
     "husky": "^1.1.4",
-    "loki": "^0.14.1",
+    "loki": "git+https://github.com/dbartholomae/loki.git#5c997369d61a1a17cf95fad041e496da2c2f8cd1",
     "reg-cli": "^0.13.0",
     "reg-suit": "^0.7.0",
     "storybook-chrome-screenshot": "^1.0.0"
