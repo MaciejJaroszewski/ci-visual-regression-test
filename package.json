@@ -4,6 +4,7 @@
   "description": "A example repository of visual regression test using storybook-chrome-screenshot and reg-suit.",
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook-static": "build-storybook -c .storybook -o .out",
     "take-snapshots": "storybook-chrome-screenshot --puppeteer-launch-config '{\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\", \"--disable-dev-shm-usage\", \"--enable-font-antialiasing\", \"--headless\", \"--disable-gpu\"]}' -p 9001 -c .storybook -o __screenshots__/current",
     "take-snapshots-ci": "storybook-chrome-screenshot --puppeteer-launch-config '{\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\", \"--disable-dev-shm-usage\", \"--enable-font-antialiasing\", \"--headless\", \"--disable-gpu\"]}' -p 9001 -c .storybook -o snapshots/current",
     "visual-diff": "reg-cli __screenshots__/current __screenshots__/expected __screenshots__/diff -R ./report.html -M 0.05 -A -X 'client'",
@@ -11,11 +12,12 @@
     "perform-test-snapshots": "npm run take-snapshots && npm run visual-diff",
     "update-screenshots": "reg-cli __screenshots__/current __screenshots__/expected __screenshots__/diff -U",
     "test": "npm run take-snapshots-ci && npm run visual-diff-ci",
+    "loki-ci": "build-storybook && loki --requireReference --reactUri file:./storybook-static",
     "test-circleci": "npm run take-snapshots-ci && npm run visual-diff-ci"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run perform-test-snapshots"
+      "pre-commit": "loki test"
     }
   },
   "dependencies": {
@@ -27,10 +29,27 @@
     "@storybook/react": "^3.3.9",
     "babel-core": "^6.26.0",
     "husky": "^1.1.4",
+    "loki": "^0.14.1",
     "reg-cli": "^0.13.0",
     "reg-suit": "^0.7.0",
     "storybook-chrome-screenshot": "^1.0.0"
   },
   "author": "tsuyoshiwada",
-  "license": "MIT"
+  "license": "MIT",
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
+  }
 }

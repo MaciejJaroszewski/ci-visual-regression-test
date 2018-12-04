@@ -2,10 +2,12 @@
 /__screenshots__/diff
 report.html
 .reg
+.out
 reg.json
 detector.wasm
 worker.js
 
+.loki
 
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
