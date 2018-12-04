@@ -27,22 +27,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: apt-get install -y sudo
-      - run: ls -al /bin/sh && sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh && ls -al /bin/sh
-      - run: sudo apt-get install -y software-properties-common
-      
-      - run: sudo add-apt-repository 'deb http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu trusty main'
-      - run: sudo apt-get update
-      - run: sudo apt-get -y upgrade
-      - run: sudo apt-get install fontconfig-infinality
-      - run: sudo apt-get -y install xvfb gtk2-engines-pixbuf
-      - run: sudo apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
-
-      - run: Xvfb -ac :99 -screen 0 1280x1024x16 &
-      - run: export DISPLAY=:99
-
-
-      - run: yarn install --frozen-lockfile
+      - run: yarn install
 
       - save_cache:
           paths:
@@ -53,13 +38,11 @@ jobs:
       - run:
           name: Test
           command: |
+            xvfbd start
             yarn test-circleci
-            # xvfbd start
-            # xvfbd stop
-
+            xvfbd stop
       - store_artifacts:
           path: snapshots/
 
       - store_artifacts:
           path: __screenshots__/
-

@@ -11,7 +11,7 @@
     "visual-diff-ci": "reg-cli snapshots/current __screenshots__/expected snapshots/diff -R snapshots/report.html -M 0.05 -A -X 'client' -I",
     "perform-test-snapshots": "npm run take-snapshots && npm run visual-diff",
     "update-screenshots": "reg-cli __screenshots__/current __screenshots__/expected __screenshots__/diff -U",
-    "test": "npm run take-snapshots-ci && npm run visual-diff-ci",
+    "test": "npm run loki-ci",
     "loki-ci": "build-storybook && loki --requireReference --reactUri file:./storybook-static",
     "test-circleci": "npm run take-snapshots-ci && npm run visual-diff-ci"
   },
