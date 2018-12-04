@@ -6,10 +6,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.13.0
-      # - image: quramy/node-nightmare:latest@sha256:e527e87f8dc37634b953594ff3fe1302068e67129dcffca51ebfa786507c379a
-      #   environment:
-      #     DISPLAY: ":99"
+      - image: yukinying/chrome-headless:63.0.3230.2
+      # - image: circleci/node:10.13.0
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -20,15 +18,15 @@ jobs:
     steps:
       - checkout
 
-      # Download and cache dependencies
-      # - restore_cache:
-      #     keys:
-      #     - v1-dependencies-{{ checksum "package.json" }}
-      #     # fallback to using the latest cache if no exact match is found
-      #     - v1-dependencies-
+      Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
 
-      - setup_remote_docker:
-          docker_layer_caching: true
+      # - setup_remote_docker:
+      #     docker_layer_caching: true
 
       - run: yarn install
 
@@ -41,9 +39,9 @@ jobs:
       - run:
           name: Test
           command: |
-            # xvfbd start
+            xvfbd start
             yarn loki-ci
-            # xvfbd stop
+            xvfbd stop
       # - store_artifacts:
       #     path: snapshots/
 
