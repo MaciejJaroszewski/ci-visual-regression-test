@@ -28,7 +28,7 @@ jobs:
       # - setup_remote_docker:
       #     docker_layer_caching: true
 
-      - run: yarn install
+      - run: npm run install
 
       - save_cache:
           paths:
@@ -39,11 +39,11 @@ jobs:
       - run:
           name: Test
           command: |
-            xvfbd start
-            yarn loki-ci
-            xvfbd stop
+            # xvfbd start
+            npm run loki-ci
+            # xvfbd stop
       # - store_artifacts:
       #     path: snapshots/
 
       - store_artifacts:
-          path: .loki/
+          path: .loki
