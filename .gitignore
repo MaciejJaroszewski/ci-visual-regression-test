@@ -7,7 +7,8 @@ reg.json
 detector.wasm
 worker.js
 
-.loki
+.loki/difference
+.loki/current
 
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
