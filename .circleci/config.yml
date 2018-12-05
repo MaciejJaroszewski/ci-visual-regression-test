@@ -6,8 +6,8 @@ version: 2
 jobs:
   build:
     docker:
-      # - image: yukinying/chrome-headless:63.0.3230.2
       - image: circleci/node:10.13.0
+      - image: yukinying/chrome-headless:63.0.3230.2
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -19,11 +19,11 @@ jobs:
       - checkout
 
       # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+      # - restore_cache:
+      #     keys:
+      #     - v1-dependencies-{{ checksum "package.json" }}
+      #     # fallback to using the latest cache if no exact match is found
+      #     - v1-dependencies-
 
       - setup_remote_docker:
           docker_layer_caching: true
