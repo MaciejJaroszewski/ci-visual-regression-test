@@ -12,7 +12,7 @@
     "perform-test-snapshots": "npm run take-snapshots && npm run visual-diff",
     "update-screenshots": "reg-cli __screenshots__/current __screenshots__/expected __screenshots__/diff -U",
     "test": "npm run loki-ci",
-    "loki-ci": "build-storybook && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting",
+    "loki-ci": "build-storybook && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting --verboseRenderer",
     "test-circleci": "npm run take-snapshots-ci && npm run visual-diff-ci"
   },
   "husky": {
