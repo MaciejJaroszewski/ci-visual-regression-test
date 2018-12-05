@@ -37,7 +37,6 @@
   "author": "tsuyoshiwada",
   "license": "MIT",
   "loki": {
-    "diffingEngine": "looks-same",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
