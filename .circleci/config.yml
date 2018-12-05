@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.13.0
-      - image: yukinying/chrome-headless:63.0.3230.2
+    #   - image: yukinying/chrome-headless:63.0.3230.2
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
