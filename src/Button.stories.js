@@ -27,7 +27,7 @@ storiesOf('Button primary3', module).add('with primary style', () => (
 ));
 
 storiesOf('Button4', module).add('with default style', () => (
-  <Button>TEST</Button>
+  <Button primary>TEST</Button>
 ));
 
 storiesOf('Button primary4', module).add('with primary style', () => (
