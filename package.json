@@ -1,23 +1,14 @@
 {
   "private": true,
-  "name": "scs-with-reg-viz",
-  "description": "A example repository of visual regression test using storybook-chrome-screenshot and reg-suit.",
+  "name": "ci-visual-regression-test",
+  "description": "A example repository of visual regression test using forked and modified loki repo",
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook-static": "build-storybook -c .storybook",
-    "take-snapshots": "storybook-chrome-screenshot --puppeteer-launch-config '{\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\", \"--disable-dev-shm-usage\", \"--enable-font-antialiasing\", \"--headless\", \"--disable-gpu\"]}' -p 9001 -c .storybook -o __screenshots__/current",
-    "take-snapshots-ci": "storybook-chrome-screenshot --puppeteer-launch-config '{\"args\":[\"--no-sandbox\",\"--disable-setuid-sandbox\", \"--disable-dev-shm-usage\", \"--enable-font-antialiasing\", \"--headless\", \"--disable-gpu\"]}' -p 9001 -c .storybook -o snapshots/current",
-    "visual-diff": "reg-cli __screenshots__/current __screenshots__/expected __screenshots__/diff -R ./report.html -M 0.05 -A -X 'client'",
-    "visual-diff-ci": "reg-cli snapshots/current __screenshots__/expected snapshots/diff -R snapshots/report.html -M 0.05 -A -X 'client' -I",
-    "perform-test-snapshots": "npm run take-snapshots && npm run visual-diff",
-    "update-screenshots": "reg-cli __screenshots__/current __screenshots__/expected __screenshots__/diff -U",
-    "test": "npm run loki-ci",
-    "loki-local": "build-storybook && loki --requireReference --reactUri file:./storybook-static --verboseRenderer",
-    "loki-local-remote-docker": "build-storybook && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting --verboseRenderer",
-    "debug-local": "./libs/loki/bin/loki --requireReference --reactUri file:./storybook-static --verboseRenderer",
-    "debug-remote": "./libs/loki/bin/loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting --verboseRenderer --chromeDockerHost 127.0.0.1",
-    "loki-ci": "build-storybook && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting --verboseRenderer",
-    "test-circleci": "npm run take-snapshots-ci && npm run visual-diff-ci"
+    "loki-update": "loki update",
+    "loki-local": "build-storybook && loki --requireReference --reactUri file:./storybook-static",
+    "loki-local-remote-docker": "build-storybook && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting",
+    "loki-ci": "npm run storybook-static && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting --verboseRenderer"
   },
   "husky": {
     "hooks": {
@@ -33,10 +24,7 @@
   "devDependencies": {
     "@storybook/react": "^3.3.9",
     "babel-core": "^6.26.0",
-    "husky": "^1.1.4",
-    "reg-cli": "^0.13.0",
-    "reg-suit": "^0.7.0",
-    "storybook-chrome-screenshot": "^1.0.0"
+    "husky": "^1.1.4"
   },
   "author": "tsuyoshiwada",
   "license": "MIT",
