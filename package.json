@@ -6,8 +6,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook-static": "build-storybook -c .storybook",
     "loki-update": "loki update",
-    "loki-local": "build-storybook && loki --requireReference --reactUri file:./storybook-static",
-    "loki-local-remote-docker": "build-storybook && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting",
+    "loki-local": "npm run storybook-static && loki --requireReference --reactUri file:./storybook-static",
+    "loki-local-remote-docker": "npm run storybook-static && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting",
     "loki-ci": "npm run storybook-static && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting --verboseRenderer"
   },
   "husky": {
