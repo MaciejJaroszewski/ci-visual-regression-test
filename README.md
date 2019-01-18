@@ -2,6 +2,8 @@
 
 ## Sample repo for using modified ```loki``` to perform visual regression on CI server
 
+Basic repo configuration forked from ```tsuyoshiwada/scs-with-reg-viz```
+
 * Requirements:
   - Docker
 
