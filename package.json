@@ -5,6 +5,7 @@
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook-static": "build-storybook -c .storybook",
+    "test": "loki test",
     "loki-update": "loki update",
     "loki-local": "npm run storybook-static && loki --requireReference --reactUri file:./storybook-static",
     "loki-local-remote-docker": "npm run storybook-static && loki --requireReference --reactUri file:./storybook-static --chromeDockerUseExisting",
