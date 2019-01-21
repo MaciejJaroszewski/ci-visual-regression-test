@@ -11,6 +11,6 @@ storiesOf('Profile', module).add('first', () => (
 ));
 
 storiesOf('Profile', module).add('no info', () => (
-  <Profile />
+  <Profile name="Name" position="position" />
 ));
 
